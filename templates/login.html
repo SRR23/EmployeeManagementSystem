@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Login {% endblock title %}
+{% block content %}
+
+<div class="content">
+    
+    <h1>Login to your account</h1>
+    
+    <form method="POST" novalidate>
+        {% if messages %}
+
+        {% include "message.html" %}
+        
+        {% endif %}
+
+        {% csrf_token %}
+
+        <label for="name">Username:</label>
+        <input type="text" id="username" name="username"><br><br>
+        {{form.username.errors}}
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br><br>
+        {{form.password.errors}}
+
+        <input type="submit" value="Login">
+        <h4>Don't have an account? <a href="{% url 'register' %}">Register </a>here.
+    </form>
+</div>
+
+{% endblock content %}

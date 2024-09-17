@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Update Profile {% endblock title %}
+{% block content %}
+
+<div class="content">
+    <h1>Update Profile</h1>
+    
+    <form method="POST" novalidate>
+
+        {% if messages %}
+
+        {% include "message.html" %}
+        
+        {% endif %}
+
+        {% csrf_token %}
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        {{form.name.errors}}
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address"><br><br>
+        {{form.address.errors}}
+
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone_number" name="phone_number"><br><br>
+        {{form.phone_number.errors}}
+
+        <label for="description">Description:</label>
+        <textarea id="short_description" name="short_description" rows="4" cols="50"></textarea><br><br>
+        {{form.short_description.errors}}
+
+        <input type="submit" value="Update">
+    
+    </form>
+</div>
+    
+{% endblock content %}

@@ -1,0 +1,162 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Sticky Navbar */
+.navbar {
+  background-color: #f9f5f5;
+  display: flex;
+  justify-content: center; /* Center the entire navbar content */
+  align-items: center;
+  padding: 15px;
+  border-bottom: 2px solid #ccc;
+  position: sticky;
+  top: 0; /* Sticks the navbar to the top of the viewport */
+  z-index: 1000; /* Ensure it appears above other content */
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+/* Navbar Title (Left aligned) */
+.navbar-title {
+  font-size: 28px; /* Increased font size for more impact */
+  font-weight: bold;
+  color: #ff6347;
+  background: linear-gradient(45deg, #ff6347, #ffa500, #ffff00, #32cd32, #1e90ff, #8a2be2, #ff69b4);
+  background-size: 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 8s ease infinite; /* Added animation for a shifting gradient */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Added subtle shadow for depth */
+  position: absolute;
+  left: 15px;
+}
+
+/* .navbar-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff6347;
+  background: linear-gradient(45deg, #ff6347, #ffa500, #32cd32, #1e90ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: absolute;
+  left: 15px; 
+} */
+
+/* Center the Navbar Menu */
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  justify-content: center; /* Centers the menu */
+  gap: 20px;
+  flex: 1; /* Ensures the menu takes up remaining space and stays centered */
+}
+
+/* Navbar Links */
+.navbar-menu li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  padding: 10px 20px;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-menu li a:hover {
+  background-color: #ddd;
+  border-radius: 5px;
+}
+
+/* Dropdown Styles */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  list-style: none;
+  border: 1px solid #ccc;
+  z-index: 1;
+}
+
+.dropdown-menu li a {
+  padding: 10px 20px;
+  white-space: nowrap;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #f0f0f0;
+}
+
+/* Show the Dropdown Menu on Hover */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Small Screens (max-width: 768px) */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Stack items vertically */
+    padding: 10px;
+  }
+
+  .navbar-title {
+    font-size: 20px; /* Adjust title size */
+    margin-bottom: 10px;
+    position: relative; /* Title centered in small screens */
+    text-align: center;
+  }
+
+  .navbar-menu {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navbar-menu li a {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+/* Extra Small Screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .navbar-title {
+    font-size: 18px;
+  }
+
+  .navbar-menu {
+    gap: 5px;
+  }
+
+  .navbar-menu li a {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
+
+/* Keyframes for gradient animation */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
